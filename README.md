@@ -17,9 +17,9 @@
 2. Разверните код:
 ```bash
 sudo mkdir -p /opt/restic-agent/scripts
-sudo cp agent.py /opt/restic-agent/
-sudo cp scripts/*.sh /opt/restic-agent/scripts/
-sudo cp scripts/config.env.example /opt/restic-agent/scripts/config.env
+sudo git clone https://github.com/bag2000/script-runner.git /opt/restic-agent
+sudo cp /opt/restic-agent/scripts/config.env.example /opt/restic-agent/scripts/config.env
+
 ```
 
 3. Настройте окружение:
@@ -28,9 +28,12 @@ sudo -u restic-agent python3 -m venv /opt/restic-agent/venv
 sudo /opt/restic-agent/venv/bin/pip install fastapi uvicorn
 ```
 
-4. Настройте права sudo:
+4. Настройте права:
 ```bash
 echo "restic-agent ALL=(root) NOPASSWD: /opt/restic-agent/scripts/*.sh" | sudo tee /etc/sudoers.d/restic-agent
+sudo chown -R restic-agent:restic-agent /opt/script-agent
+sudo chown root:root -R /opt/script-agent/scripts
+sudo chmod 755 -R /opt/script-agent/scripts
 ```
 
 5. Настройка автозапуска (Systemd)
