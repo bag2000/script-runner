@@ -1,0 +1,14 @@
+# База данных и логи
+*.db
+*.db-journal
+
+# Реальные секреты
+scripts/config.env
+
+# Python
+__pycache__/
+venv/
+.env
+
+# Системные файлы
+.DS_Store

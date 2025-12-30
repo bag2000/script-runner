@@ -1,0 +1,14 @@
+[Unit]
+Description=Restic Python Agent
+After=network.target
+
+[Service]
+User=restic-agent
+Group=restic-agent
+WorkingDirectory=/opt/restic-agent
+Environment="SERVER_TOKEN=your_token_here"
+ExecStart=/opt/restic-agent/venv/bin/uvicorn agent:app --host 0.0.0.0 --port 8000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
