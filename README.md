@@ -54,7 +54,12 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 ```
-
+Зпуск службы
+ ```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now restic-agent
+sudo systemctl status restic-agent
+```
 ## Настройка
 Отредактируйте /opt/restic-agent/scripts/config.env, указав свои доступы к репозиторию.
 Установите секретный токен в файле /etc/systemd/system/restic-agent.service в переменной SERVER_TOKEN
