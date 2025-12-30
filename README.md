@@ -31,9 +31,9 @@ sudo /opt/restic-agent/venv/bin/pip install fastapi uvicorn
 4. Настройте права:
 ```bash
 echo "restic-agent ALL=(root) NOPASSWD: /opt/restic-agent/scripts/*.sh" | sudo tee /etc/sudoers.d/restic-agent
-sudo chown -R restic-agent:restic-agent /opt/script-agent
-sudo chown root:root -R /opt/script-agent/scripts
-sudo chmod 755 -R /opt/script-agent/scripts
+sudo chown -R restic-agent:restic-agent /opt/restic-agent
+sudo chown root:root -R /opt/restic-agent/scripts
+sudo chmod 755 -R /opt/restic-agent/scripts
 ```
 
 5. Настройка автозапуска (Systemd)
